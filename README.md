@@ -1,4 +1,4 @@
-# simple-react-full-stack
+# Trip finder
 
 [![Build Status](https://travis-ci.org/crsandeep/simple-react-full-stack.svg?branch=master)](https://travis-ci.org/crsandeep/simple-react-full-stack)
 [![Greenkeeper badge](https://badges.greenkeeper.io/crsandeep/simple-react-full-stack.svg)](https://greenkeeper.io/)
@@ -43,7 +43,7 @@ In the production mode, we will have only 1 server running. All the client side 
 git clone https://github.com/crsandeep/simple-react-full-stack
 
 # Go inside the directory
-cd simple-react-full-stack
+cd trip-finder
 
 # Install dependencies
 yarn (or npm install)
