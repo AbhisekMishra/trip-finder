@@ -8,7 +8,7 @@ const getLocationsQuery = gql`
 
 const getShortestPathQuery = gql`
 query getShortestPath($source: String!, $destination: String!, $filter: String!) {
-  locations: getLocations(source: $source, destination: $destination, filter: $filter) {
+  locations: getShortestPath(source: $source, destination: $destination, filter: $filter) {
     from
     to
     mode

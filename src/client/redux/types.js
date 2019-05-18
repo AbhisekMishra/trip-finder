@@ -1,7 +1,10 @@
 const types = {
-  SET_TO: 'path/SET_TO',
-  SET_FROM: 'path/SET_FROM',
+  SET_SOURCE: 'path/SET_SOURCE',
+  SET_DESTINATION: 'path/SET_DESTINATION',
   SET_FILTER: 'path/SET_FILTER',
+  SET_LOCATIONS: 'path/SET_LOCATIONS',
+  START_SEARCH: 'path/START_SEARCH',
+  SEARCH_SUCCESS: 'path/SEARCH_SUCCESS',
 };
 
 export default types;
