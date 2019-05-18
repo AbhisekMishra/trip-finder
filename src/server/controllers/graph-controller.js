@@ -7,17 +7,14 @@ import {
   getWeight,
   getUniqueDepartureTransportKeys,
   getUniqueObjKeys,
+  transferShortestPathToReturnableObject,
 } from '../utils/graph-helper';
 
 const fares = faresJSON.deals;
 
 const getLocationList = () => getUniqueObjKeys(fares, 'departure');
 
-const calculateShortestPath = () => {
-  const source = 'London';
-  const destination = 'Moscow';
-  const filter = 'time';
-
+const calculateShortestPath = (source, destination, filter) => {
   const uniqueDepartureTransportKeys = getUniqueDepartureTransportKeys(fares);
 
   const convertedFaresNonUniq = fares.map(fare => ({ [`${fare.departure}#${fare.transport}`]: getWeight(fare, filter) }));
@@ -26,8 +23,8 @@ const calculateShortestPath = () => {
   const convertedFaresObj = convertArrayToObject(convertedFaresUniq);
   const faresObj = connectTransportKeys(convertedFaresObj, fares);
   const graph = new Graph(faresObj);
-  console.log(graph);
-  console.log(graph.findShortestPath(source, destination));
+  const shortestPath = graph.findShortestPath(source, destination);
+  return transferShortestPathToReturnableObject(shortestPath, fares);
 };
 
 export { getLocationList, calculateShortestPath };

@@ -32,7 +32,7 @@ const connectTransportKeys = (faresObj, fares) => {
       faresObjClone[`${source}#${transport}`] = Object.assign(faresObjClone[`${source}#${transport}`], convertArrayToObject(otherTransportObjArr), { [source]: 0 });
     });
   });
-  return faresObj;
+  return faresObjClone;
 };
 
 const getWeight = (fare, filter) => {
@@ -47,6 +47,23 @@ const getWeight = (fare, filter) => {
 
 const getUniqueDepartureTransportKeys = fares => [...new Set(fares.map(fare => `${fare.departure}#${fare.transport}`))];
 
+const transferShortestPathToReturnableObject = (path, fares) => {
+  const slicedPath = path.slice(1, -1);
+  const uniqueLocations = [...new Set(slicedPath.map(p => p.split('#')[0]))];
+  const returnablePath = [];
+  uniqueLocations.forEach((loc, index) => {
+    if (index !== uniqueLocations.length - 1) {
+      const toStr = slicedPath.filter(p => p.includes(uniqueLocations[index + 1]))[0];
+      const fareObj = fares.filter(fare => fare.departure === loc && fare.arrival === toStr.split('#')[0] && fare.transport === toStr.split('#')[1])[0];
+      const obj = {
+        from: loc, to: toStr.split('#')[0], mode: toStr.split('#')[1], cost: fareObj.cost, duration: fareObj.duration,
+      };
+      returnablePath.push(obj);
+    }
+  });
+  return returnablePath;
+};
+
 export {
   extractAllElementWithKey,
   convertArrayToObjectWithKey,
@@ -55,4 +72,5 @@ export {
   getWeight,
   getUniqueObjKeys,
   getUniqueDepartureTransportKeys,
+  transferShortestPathToReturnableObject,
 };

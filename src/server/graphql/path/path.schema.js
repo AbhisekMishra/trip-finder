@@ -1,31 +1,23 @@
 const { gql } = require('apollo-server');
 
-const fields = `
-    startDate: Date
-    endDate: Date
-    userId: Int
-`;
-
 export default gql`
   scalar Date
 
   extend type Query {
     getLocations: [String]
+    getShortestPath(source: String!, destination: String!, filter: String!): [Path]
   }
 
-  extend type Mutation {
-    book(data: BookingInput!): Booking
-    updateBooking(id: Int!, data: BookingInput!): Booking
-    deleteBooking(id: Int!): Int
+  type Path {
+      from: String
+      to: String
+      mode: String
+      cost: Int
+      duration: Time
   }
 
-  input BookingInput {
-    ${fields}
-  }
-
-  type Booking {
-    id: Int!
-    createdAt: Date
-    ${fields}
+  type Time {
+      h: String
+      m: String
   }
 `;
