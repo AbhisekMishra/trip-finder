@@ -5,7 +5,7 @@
 
 This is a sample project to find the shortest path between two destinations using Dikshtra algorithm.
 
-- [simple-react-full-stack](#simple-react-full-stack)
+- [trip-finder](#simple-react-full-stack)
   - [Introduction](#introduction)
     - [Development mode](#development-mode)
     - [Production mode](#production-mode)
