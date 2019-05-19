@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/crsandeep/simple-react-full-stack.svg?branch=master)](https://travis-ci.org/crsandeep/simple-react-full-stack)
 [![Greenkeeper badge](https://badges.greenkeeper.io/crsandeep/simple-react-full-stack.svg)](https://greenkeeper.io/)
 
-This is a sample tproject to find the shortest path between two destinations using Dikshtra algorithm.
+This is a sample project to find the shortest path between two destinations using Dikshtra algorithm.
 
 - [simple-react-full-stack](#simple-react-full-stack)
   - [Introduction](#introduction)
