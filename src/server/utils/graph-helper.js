@@ -56,7 +56,7 @@ const transferShortestPathToReturnableObject = (path, fares) => {
       const toStr = slicedPath.filter(p => p.includes(uniqueLocations[index + 1]))[0];
       const fareObj = fares.filter(fare => fare.departure === loc && fare.arrival === toStr.split('#')[0] && fare.transport === toStr.split('#')[1])[0];
       const obj = {
-        from: loc, to: toStr.split('#')[0], mode: toStr.split('#')[1], cost: fareObj.cost, duration: fareObj.duration,
+        from: loc, to: toStr.split('#')[0], mode: toStr.split('#')[1], cost: fareObj.cost - (fareObj.discount * fareObj.cost) / 100, duration: fareObj.duration,
       };
       returnablePath.push(obj);
     }
