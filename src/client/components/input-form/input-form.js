@@ -57,8 +57,8 @@ export default class InputForm extends React.Component {
         </FormGroup>
         <FormGroup>
           <ButtonGroup>
-            <Button outline={filter !== 'cost'} type="button" onClick={() => setFilter('cost')}>Cost</Button>
-            <Button outline={filter !== 'time'} type="button" onClick={() => setFilter('time')}>Time</Button>
+            <Button outline={filter !== 'cost'} type="button" onClick={() => setFilter('cost')}>Cheapest</Button>
+            <Button outline={filter !== 'time'} type="button" onClick={() => setFilter('time')}>Fastest</Button>
           </ButtonGroup>
         </FormGroup>
         <Button color="primary">Search</Button>
